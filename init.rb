@@ -7,7 +7,7 @@ Resque.schedule        = YAML.load_file(WORKER_SCHEDULE_FILE) if File.file?(WORK
 
 ActiveSupport::Dependencies.autoload_paths.push File.expand_path('../app/jobs', __FILE__)
 
-ActionDispatch::Callbacks.to_prepare do
+ActiveSupport::Reloader.to_prepare do
   require 'redmine_resque'
 end
 
